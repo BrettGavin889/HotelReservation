@@ -1,0 +1,32 @@
+<h2>Available Rooms</h2>
+<table class="table table-condensed">
+    <thead>
+    <tr>
+        <th>Room Number</th>
+        <th>Floor</th>
+        <th>Max Occupants</th>
+        <th>Beds</th>
+        <th>Has Window(s)</th>
+        <th>Is Corner Room</th>
+        <th>Is Penthouse</th>
+        <th>Price</th>
+        <th>Book</th>
+        <th>View Bookings</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="room in rooms">
+        <td>{{room.roomNumber}}</td>
+        <td>{{room.floor}}</td>
+        <td>{{room.occupants}}</td>
+        <td>{{room.beds}}</td>
+        <td>{{room.isWindow}}</td>
+        <td>{{room.isCorner}}</td>
+        <td>{{room.isPenthouse}}</td>
+        <td>{{room.price}}</td>
+        <td><a href="#/edit/{{room.roomNumber}}" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-pencil"></i></a></td>
+    	<td><a href="#/bookings/{{room.roomNumber}}" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-pencil"></i></a></td>
+    </tr>
+    </tbody>
+</table>
+<a class="btn btn-primary" href="#/">Cancel</a>

@@ -1,0 +1,18 @@
+<h2>Bookings</h2>
+<table class="table table-condensed">
+    <thead>
+    <tr>
+    	<th>Room Number</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="booking in bookings">
+        <td>{{booking.roomNumber}}</td>
+        <td>{{booking.start}}</td>
+        <td>{{booking.end}}</td>
+    </tr>
+    </tbody>
+</table>
+<a class="btn btn-primary" href="#/">Cancel</a>

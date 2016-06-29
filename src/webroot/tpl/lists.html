@@ -1,0 +1,64 @@
+<h2>Available Rooms</h2>
+<table class="table table-condensed">
+    <thead>
+    <tr>
+        <th>
+          <a href="#/search-room" ng-click="orderByField='roomNumber'; reverseSort = !reverseSort">
+          Room Number <span ng-show="orderByField == 'roomNumber'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+          </a>
+        </th>
+        <th>
+          <a href="#/search-room" ng-click="orderByField='floor'; reverseSort = !reverseSort">
+          Floor <span ng-show="orderByField == 'floor'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+          </a>
+        </th>
+        <th>
+          <a href="#/search-room" ng-click="orderByField='occupants'; reverseSort = !reverseSort">
+          Max Occupants <span ng-show="orderByField == 'occupants'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+          </a>
+        </th>
+        <th>
+          <a href="#/search-room" ng-click="orderByField='beds'; reverseSort = !reverseSort">
+          Beds <span ng-show="orderByField == 'beds'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+          </a>
+        </th>
+        <th>
+          <a href="#/search-room" ng-click="orderByField='isWindow'; reverseSort = !reverseSort">
+          Has Window(s) <span ng-show="orderByField == 'isWindow'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+          </a>
+        </th>
+        <th>
+          <a href="#/search-room" ng-click="orderByField='isCorner'; reverseSort = !reverseSort">
+          Is Corner Room <span ng-show="orderByField == 'isCorner'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+          </a>
+        </th>
+        <th>
+          <a href="#/search-room" ng-click="orderByField='isPenthouse'; reverseSort = !reverseSort">
+          Is Penthouse <span ng-show="orderByField == 'isPenthouse'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+          </a>
+        </th>
+        <th>
+          <a href="#/search-room" ng-click="orderByField='price'; reverseSort = !reverseSort">
+          Price <span ng-show="orderByField == 'price'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+          </a>
+        </th>
+        <th ng-show="!state.viewAll">Book</th>
+        <th>View Bookings</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="room in rooms|orderBy:orderByField:reverseSort">
+        <td>{{room.roomNumber}}</td>
+        <td>{{room.floor}}</td>
+        <td>{{room.occupants}}</td>
+        <td>{{room.beds}}</td>
+        <td>{{room.isWindow}}</td>
+        <td>{{room.isCorner}}</td>
+        <td>{{room.isPenthouse}}</td>
+        <td>{{room.price}}</td>
+        <td ng-show="!state.viewAll"><a href="#/edit/{{room.roomNumber}}" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-pencil"></i></a></td>
+    	<td><a href="#/bookings/{{room.roomNumber}}" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-pencil"></i></a></td>
+    </tr>
+    </tbody>
+</table>
+<a class="btn btn-primary" href="#/">Cancel</a>

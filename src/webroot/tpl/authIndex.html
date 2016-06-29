@@ -1,0 +1,63 @@
+<html>
+
+<body>
+
+<h1>Hotel Reservation System</h1>
+<a class="btn btn-primary" href="#/signup" ng-show="!state.loggedIn"> SignUp </a>
+<a class="btn btn-primary" href="#/login" ng-show="!state.loggedIn"> Login </a>
+<label ng-bind='state.user.username' ng-show="state.loggedIn"></label>
+<button class="btn btn-primary" ng-click="logout()" ng-show="state.loggedIn"> Logout </button>
+<br><br>
+
+<form name="RoomSearchForm" action="" method="post" ng-show="true">
+
+<div>
+	<label for="start"> Start Date: </label><input type="date" id="start" name="start" ng-model="state.room.start" />
+	<label for="start"> End Date: </label><input type="date" id="end" name="end" ng-model="state.room.end" />
+</div>
+<div>
+	<label for="name"> Number of Occupants: </label>
+	<input type="number" id="occupants" name="occupants" ng-model="state.room.occupants" value="{{state.user.occupants}}" min="1" max="10"/>
+	<label for="beds"> Number of Beds: </label>
+	<input type="number" id="beds" name="beds" ng-model="state.room.beds" value="{{state.user.beds}}" min="1" max="3"/>
+	<!--  <select id="beds" name="beds" ng-model="room.beds">
+    	<option value="" disabled="disabled" selected="selected">Please select number of beds</option>
+    	<option value="1">One</option>
+    	<option value="2">Two</option>
+    	<option value="3">Three</option>
+	</select>-->
+</div>
+<div>
+	<label for="max"> Maximum Price: </label><input type="number" id="max" name="max" ng-model="state.room.max" min="0" max="1000" step="100" />
+	<label for="min"> Minimum Price: </label><input type="number" id="min" name="min" ng-model="state.room.min" min="0" max="1000" step="100" />
+</div>
+<select id="isPenthouse" name="isPenthouse" ng-model="state.room.isPenthouse">
+    <option value="" disabled="disabled" selected="selected">Penthouse?</option>
+    <option value="1">Yes</option>
+    <option value="2">No</option>
+</select>
+<select id="isWindow" name="isWindow" ng-model="state.room.isWindow">
+    <option value="" disabled="disabled" selected="selected">Window?</option>
+    <option value="1">Yes</option>
+    <option value="2">No</option>
+</select>
+<select id="isCorner" name="isCorner" ng-model="state.room.isCorner">
+    <option value="" disabled="disabled" selected="selected">Corner?</option>
+    <option value="1">Yes</option>
+    <option value="2">No</option>
+</select>
+<br>
+<button class="btn btn-primary" ng-click="search_room(state.room)"> Check Availability </button>
+<button class="btn btn-primary" ng-click="save(state.room)" ng-show="state.loggedIn"> Save Preferences </button>
+<button class="btn btn-primary" ng-click="view_all()"> View All Rooms </button>
+</form>
+<button class="btn btn-primary" ng-click="chat()" ng-show="false"> Chat with employee </button>
+<!-- <button class="btn btn-primary" ng-click="bookings()" ng-show="state.loggedIn"> Show Bookings </button> -->
+<a class="btn btn-primary" href="#/bookings/user" ng-show="state.loggedIn"> Show Bookings </a>
+<div ng-show="state.loggedIn">
+      <h3>Account Balance: </h3>
+      <h3><strong ng-bind="state.user.accountBalance"></strong></h3>
+      <button class="btn btn-primary" ng-click="money()"> Add Money </button>
+</div>
+</body>
+</html>

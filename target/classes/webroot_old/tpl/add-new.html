@@ -1,0 +1,28 @@
+<h2>Please fill in the following information</h2>
+<div class="row">
+    <div class="col-md-6">
+        <form novalidate name="AddNewForm" id="add-new-form" method="post" action="">
+            <div class="form-group">
+                <label>First Name:</label>
+                <input class="form-control" type="text" ng-model="user.firstName" value="{{state.user.firstName}}"required />
+            </div>
+            <div class="form-group">
+                <label>Last Name:</label>
+                <input class="form-control" type="text" ng-model="user.lastName" value="{{state.user.lastName}}"required />
+            </div>
+            <div class="form-group" ng-show="state.loggedIn">
+            	<input type="checkbox" id="payfromaccount" name="payfromaccount" value="payfromaccount" ng-checked= "user.paymentChecked" ng-model ="user.paymentChecked" ng-checked="isChecked">Pay From Account <br>
+            </div>
+            <div class="form-group">
+                <label>Payment Info:</label>
+                <input class="form-control" id="paymentinfo" type="text" ng-model="user.paymentInfo" ng-disabled="user.paymentChecked" value="{{state.user.paymentInfo}}"required />
+            </div>
+            <div class="form-group">
+                <label>Email:</label>
+                <input class="form-control" type="text" ng-model="user.email" value="{{state.user.email}}" required />
+            </div>
+            <button class="btn btn-primary" ng-disabled="AddNewForm.$invalid || isUnchanged(user)" id="add-new-btn" ng-click="book_room(user)">Save!</button>
+            <a href="#/" class="btn">Cancel</a>
+        </form>
+    </div>
+</div>
